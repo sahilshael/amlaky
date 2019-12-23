@@ -1,6 +1,7 @@
 @extends('frontend.layout.landlordLayout')
 @section('title','Landlord Profile')
 @section('content')
+<div class="home_page_wrapper tent_db view_prof_db">
     <section class="sec_dashboard db_main">
         <div class="container-fluid">
             <div class="row">
@@ -22,7 +23,7 @@
                                 <div class="main_cntnt_dash">
                                     <div class="card_shd cnt_skamper">
                                         <div class="text-right log_btn">
-                                            <a href="javascript:;" class="btn btn-primary">Edit Profile</a>
+                                            <a href="{{url('/landlord-editprofile')}}" class="btn btn-primary">Edit Profile</a>
                                         </div>
                                         <!--  -->
                                         <div class="cont_shd_frm">
@@ -81,6 +82,8 @@
             </div>
         </div>
     </section>
+    @include('frontend.include.footer')
+</div>
 @stop
 @section('scripts')
     

@@ -26,4 +26,25 @@ Route::group(['middleware'=>['userlogin']],function(){
 	Route::match(['get','post'],'/landlord-dashboard','UserController@landlordDashboard');
 	Route::match(['get','post'],'/logout','UserController@logout');
 	Route::match(['get','post'],'/landlord-profile','UserController@landlordProfile');
+	Route::match(['get','post'],'/landlord-editprofile','UserController@landlordEditProfile');
+	Route::match(['get','post'],'/landlord-change-password','UserController@landlordResetPassword');
+	Route::match(['get','post'],'/landlord-check-password','UserController@landlordCurrentPassword');
+});
+define('profile_img', 'public/frontend/profile_img');
+
+
+Route::match(['get','post'],'/admin','admin\AdminController@Login');
+Route::match(['get','post'],'/forgot-password','admin\AdminController@forgotPassword');
+Route::match(['get','post'],'/admin-reset-password/{id}/{random_number}', 'admin\AdminController@adminresetPassword');
+
+Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
+	Route::match(['get','post'],'/dashboard','admin\AdminController@Dashboard');
+	Route::match(['get','post'],'/logout','admin\AdminController@Logout');
+	Route::match(['get','post'],'/profile','admin\AdminController@Profile');
+	Route::match(['get','post'],'/check-current-password','admin\AdminController@checkCurrentPassword');
+
+	//======================================User Management Start==================================
+
+	Route::match(['get','post'],'/users','admin\UserManagementController@Users');	
+	Route::match(['get','post'],'/ajax-users','admin\UserManagementController@ajaxUsers');
 });

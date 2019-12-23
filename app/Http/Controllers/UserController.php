@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Request,Redirect;
 use App\Http\Requests, DB, Session, Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -121,6 +121,81 @@ class UserController extends Controller
     	if($user){
 	  		return view('frontend/propertyManagement/landlordProfile', ['user'=>$user]);
     	}
+    }
+
+    public function landlordEditProfile(Request $request)
+    {
+        $user = Auth::user();
+        
+        if($request->isMethod('post')){
+            $data=$request->all();
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $rand = uniqid();
+                $extension = $image->getClientOriginalExtension();
+                $new_name = $rand.'.'.$extension;
+                $destination = profile_img;
+                if ($extension == 'jpg'||$extension == 'jpeg'||$extension == 'png'||$extension == 'gif') {
+                    $image->move($destination, $new_name);
+                    $fileName  = $new_name;
+                }
+            }
+            $update=DB::table('users')->where('id',$user->id)->update([
+                                                            'first_name'=>$data['first_name'],
+                                                            'last_name'=>$data['last_name'],
+                                                            'contact'=>$data['contact'],
+                                                            'profile_image'=>$fileName,]);
+            if ($update) {
+                session::flash('success', "Data updated successfully.");
+                return Redirect::back();
+            }else {
+                session::flash('error', "Data not updated.");
+                return Redirect::back();    
+            }
+        }
+        if($user){
+            return view('frontend/propertyManagement/landlordEditProfile', ['user'=>$user]);
+        }
+    }
+
+    public function landlordResetPassword(Request $request)
+    {
+        $user = Auth::user();
+        if($request->isMethod('post')){
+            $data=$request->all();
+            // dd($data);
+
+            $change_pass    =   bcrypt($data['new_password']);
+            $update_pass    =   DB::table('users')->where('id',$user->id)->update([
+
+                                        'password'      =>  $change_pass,
+                                        'decoded_password'  =>  $data['new_password'],
+
+                                ]);
+            if($update_pass){
+                return $arrayName = array('status' => 'true');
+            }else{
+                return $arrayName = array('status' => 'false');
+            }
+        }
+        if($user){
+            return view('frontend/propertyManagement/landlordChangePassword', ['user'=>$user]);
+        }
+    }
+
+    public function landlordCurrentPassword(Request $request){
+
+        $data               = $request->input();
+        $id                 = Auth::user()->id;
+        $password           = $data['password'];
+        $users              = DB::table('users')->where('id',$id)->first();
+        $users              = json_decode(json_encode($users),true);
+
+        if($users && Hash::check($password, $users['password'])) {            
+            return "true";
+        }else{
+            return "false";
+        }
     }
 
 }

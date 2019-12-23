@@ -26,11 +26,12 @@
 
         <div class="page-wrapper">
             @include('frontend.include.dashboardHeader')
+            @yield('content')
 
-            <div class="home_page_wrapper staff_work_status tent_land_dash">
+            <!-- <div class="home_page_wrapper staff_work_status tent_land_dash">
 				@yield('content')
 				@include('frontend.include.footer')
-            </div>
+            </div> -->
         </div>
         @include('frontend.include.scripts')
         @yield('scripts')

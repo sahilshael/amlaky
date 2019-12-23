@@ -1,6 +1,7 @@
 @extends('frontend.layout.landlordLayout')
 @section('title','Landlord Dashboard')
 @section('content')
+<div class="home_page_wrapper staff_work_status tent_land_dash">
 	<section class="sec_dashboard db_main">
         <div class="container-fluid">
             <div class="wrap_dash_sec view_prof_page view_usr"> <!-- change class -->
@@ -492,7 +493,8 @@
             </div>
         </div>
     </section>
-
+    @include('frontend.include.footer')
+</div>
 
 @stop
 @section('scripts')
