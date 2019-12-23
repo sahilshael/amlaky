@@ -89,7 +89,7 @@
                                 </table>
                             </div>
                             <div class="table-btn">
-                                <form method="post" action="{{url('admin/userMarkDelete')}}">
+                                <form method="post" id="select-delete" ">
                                     @csrf
                                     <input class="checker" type="hidden" name="someCheckbox[]" value="">
                                     <div class="btn-group pull-right m-b-10">
@@ -159,11 +159,11 @@ $(function() {
 
 
 <script type="text/javascript">
-    $('#allDelete').click(function(){
+    $('#selectDelete').click(function(){
         $ajax({
-            url:"{{url('/admin/all-user-delete')}}"
-            method:
-            data:
+            url:"{{url('/admin/select-user-delete')}}"
+            method:'post'
+            data:$('#select-delete').serialize()
             success:
 
         });
