@@ -1,0 +1,58 @@
+@media only screen and (max-width: 1080px) {
+	.trans_hdr .navbar-light .navbar-nav .nav-link {
+		color: #fff;
+		margin-left: 15px;
+	}
+	.trans_hdr.fixed_hedr .navbar-light .navbar-nav .nav-link {
+		color: #a62964;
+		margin-left: 15px;
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	.slider_caption h3 {
+		width: 70%;
+	}
+	.list_item.compact li span {
+		font-size: 15px;
+	}
+	.feat_block .inn_box .icon {
+		font-size: 30px;
+	}
+	.feat_block .inn_box {
+		padding-left: 50px;
+	}
+	.feat_block h4 {
+		font-size: 15px;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+}
+
+@media only screen and (max-width: 768px) {
+	.slider_caption h3 {		
+		font-size: 35px;		
+	}
+}
+
+@media only screen and (max-width: 767px) {
+}
+
+@media only screen and (max-width: 640px) {
+}
+
+@media only screen and (max-width: 480px) {
+}
+	
+@media only screen and (max-width: 414px) {
+}
+
+@media only screen and (max-width: 375px) {
+}
+
+@media only screen and (max-width: 360px) {
+}
+
+@media only screen and (max-width: 320px) {
+}
