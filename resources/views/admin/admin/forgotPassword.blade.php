@@ -1,16 +1,15 @@
 @extends('admin.layout.loginLayout')
+@section('title','Admin Forgot Password')
 @section('content')
 <style type="text/css">
-    .igm_forg {
-        display: inline-block;
-    }
+
 </style>
 <div class="theme-loader">
     <div class="loader-track">
         <div class="loader-bar"></div>
     </div>
 </div>
-<section class="login p-fixed d-flex text-center bg-primary common-img-bg">
+<section class="login p-fixed d-flex text-center common-img-bg">
         <!-- Container-fluid starts -->
         <div class="container">
             <div class="row">
@@ -21,7 +20,7 @@
                     <div class="row justify-content-center">
                         <div class="text-center logo-wrap">
                             
-                            <img src="{{url('public/admin/assets/images/unilife-icon.png')}}" alt="logo.png" class="igm_forg">
+                            <img src="{{url('public/frontend/img/Amlakyw.png')}}" alt="logo.png" class="igm_forg">
                         </div>
                     </div>
                     <!-- <div class="auto-form-wrapper" style="margin-top: 10px;"> -->

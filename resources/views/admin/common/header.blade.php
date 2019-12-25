@@ -1,10 +1,8 @@
 <style type="text/css">
   .admin-logo img{
-    width: 45px;
+    width: 140px;
     height: auto;
-    margin: 0 auto;
-    margin-left: auto;
-    margin-left: 62px;
+    margin-left: 22px;
   }
 </style>
  <nav class="navbar header-navbar pcoded-header">
@@ -25,7 +23,7 @@
                 </div>
             </div>
             <a href="{{url('admin/dashboard')}}" class="admin-logo">
-                <img class="img-fluid" src="{{url('public/admin/assets/images/unilife-icon.png')}}" alt="Theme-Logo" />
+                <img class="img-fluid" src="{{url('public/frontend/img/Amlakyw.png')}}" alt="Theme-Logo" />
             </a>
             <a class="mobile-options">
                 <i class="ti-more"></i>
@@ -102,7 +100,7 @@
                        <span>John Doe</span>
                        <i class="ti-angle-down"></i>
                    </a> -->
-                  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="newProfileDropdown">
+                  <a class="nav-link dropdown-toggle" href="javascript:;">
                     @if(!empty(Auth::guard('admins')->user()->image))
                     <img  src="{{asset('public/admin/profile_img/'.Auth::guard('admins')->user()->image)}}" id="profile_image">
                     @else

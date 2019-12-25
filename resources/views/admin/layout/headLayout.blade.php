@@ -13,7 +13,7 @@
       <meta name="keywords" content="free dashboard template, free admin, free bootstrap template, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
       <meta name="author" content="codedthemes">
       <!-- Favicon icon -->
-      <link rel="icon" href="{{url('public/admin/assets/images/unilife-icon.png')}}" type="image/x-icon">
+      <link rel="icon" href="{{url('public/admin/assets/images/Amlaky.png')}}" type="image/x-icon">
       <!-- Google font-->
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
       <!-- Required Fremwork -->
@@ -32,11 +32,11 @@
       <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
       <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
       <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
+      <link rel="stylesheet" type="text/css" href="{{url('public/admin/css/developer.css')}}">
       <style type="text/css">
         .error{
           color: red;
         }
-
         .modal-open .daterangepicker {
             z-index: 9999999999;
         }

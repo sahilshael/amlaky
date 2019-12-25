@@ -15,11 +15,6 @@
     .error{
         padding-left: 20px;
     }
-    /*.responsive_image_pic {
-        width: 225px;
-        height: 152px;
-    object-fit: contain;
-    }*/
 </style>
 <div class="pcoded-content">
 <div class="pcoded-inner-content">
@@ -30,7 +25,7 @@
             <!-- <div class="page-wrapper"> -->
             <!-- Bread crumb -->
             <div class="row page-titles">
-                <div class="col-md-5 align-self-center">
+                <div class="col-md-12">
                     <h3 class="text-primary">Profile</h3>
                 </div>
                 <!-- <div class="col-md-7 align-self-center">
@@ -64,22 +59,24 @@
                                             @endif
                                             </div> -->
                                         <div class="row">
-                                            <div class="col-lg-4 col-md-4 m-b-20 ">
-                                            </div>
-                                            <div class="col-lg-3 col-md-6 m-b-20 ">   
-                                                @if(!empty(Auth::guard('admins')->user()->image))
-                                                <img class="img-responsive radius profile_image2" src="{{asset('public/admin/profile_img/'.Auth::guard('admins')->user()->image)}}" id="profile_image">
-                                                @else
-                                                <img class="img-responsive radius profile_image2" src="{{asset('public/frontend/img/profile2.jpg')}}" id="profile_image">
-                                                @endif
+                                            <!-- <div class="col-lg-4 col-md-4 m-b-20 ">
+                                            </div> -->
+                                            <div class="col-lg-3 offset-lg-4 col-md-6 m-b-20 ">
+                                                <div class="prof_dp">
+                                                    @if(!empty(Auth::guard('admins')->user()->image))
+                                                    <img class="img-fluid radius profile_image2" src="{{asset('public/admin/profile_img/'.Auth::guard('admins')->user()->image)}}" id="profile_image">
+                                                    @else
+                                                    <img class="img-fluid radius profile_image2" src="{{asset('public/frontend/img/profile2.jpg')}}" id="profile_image">
+                                                    @endif                                                    
+                                                </div>   
                                             </div>
                                         </div>
                                     </header>
                                     <div class="row">
-                                        <div class="col-lg-4 col-md-4 m-b-20">
-                                        </div>
-                                        <div class="col-lg-3 col-md-6 m-b-20">
-                                            <h3 style="text-align: center; color: #79cad7;">{{Auth::guard('admins')->user()->username}}</h3>
+                                        <!-- <div class="col-lg-4 col-md-4 m-b-20">
+                                        </div> -->
+                                        <div class="col-lg-3 offset-lg-4 col-md-6 m-b-20">
+                                            <h3 style="text-align: center; color: #b94044; margin: 13px 0 0;">{{Auth::guard('admins')->user()->username}}</h3>
                                             <div class="desc"></div>
                                         </div>
                                     </div>
@@ -151,7 +148,7 @@
                                             </div>
                                             <div class="form-group profile_formgroup">
                                                 <div class="col-sm-12">
-                                                    <button class="btn btn-success">Update Profile</button>
+                                                    <button class="btn btn-success back-btn">Update Profile</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -183,7 +180,7 @@
                                                 <div class="col-lg-3 col-md-6 m-b-20">
                                                     <div class="form-group">
                                                         <div class="col-sm-12">
-                                                            <button class="btn btn-success upload_image">Update Image</button>
+                                                            <button class="btn btn-success back-btn upload_image">Update Image</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -215,7 +212,7 @@
                                             </div>
                                             <div class="form-group profile_formgroup">
                                                 <div class="col-sm-12">
-                                                    <button class="btn btn-success">Update Password</button>
+                                                    <button class="btn btn-success back-btn">Update Password</button>
                                                 </div>
                                             </div>
                                         </form>

@@ -1,4 +1,5 @@
 @extends('admin.layout.loginLayout')
+@section('title','Admin Login')
 @section('content')
         <!-- Pre-loader start -->
     <div class="theme-loader">
@@ -8,7 +9,7 @@
     </div>
     <!-- Pre-loader end -->
 
-    <section class="login p-fixed d-flex text-center bg-primary common-img-bg">
+    <section class="login p-fixed d-flex text-center common-img-bg">
         <!-- Container-fluid starts -->
         <div class="container">
             <div class="row">
@@ -18,7 +19,7 @@
                         <form class="md-float-material" action="{{url('/admin')}}" id="login" method="post">
                           @csrf
                             <div class="text-center logo-wrap">
-                                <img src="{{url('public/admin/assets/images/unilife-icon.png')}}" alt="logo.png">
+                                <img src="{{url('/public/frontend/img/Amlakyw.png')}}" alt="logo.png">
                             </div>
                             <div class="auth-box">
                                 <div class="row m-b-20">

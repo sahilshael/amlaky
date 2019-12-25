@@ -1,0 +1,44 @@
+.igm_forg {
+    display: inline-block;
+}
+.back-btn, .recover-btn{
+    background: #b94044;
+    border-color: #b94044;
+}
+.back-btn:hover,
+.recover-btn:hover{
+    background: #b94044;
+    border-color: #b94044;
+}
+.btn-outline-success{
+    border-color: #b94044;
+    color: #b94044;
+}
+.btn-outline-success:hover{
+    background: #b94044;
+    border-color: #b94044;
+}
+#sample_editable_1_new{
+    background: #b94044;
+    border-color: #b94044;
+    color: #fff;
+    margin: 0 3px;
+}
+.pcoded .pcoded-navbar[active-item-theme="theme4"] .pcoded-item > li.active > a::before {
+    border-left-color: #0094de;
+}
+/*.pcoded .pcoded-navbar[active-item-theme="theme4"] .pcoded-item li:hover > a {
+    color: #b94044 !important;
+}*/
+.navbar{
+    border-radius: 0;
+}
+.text-primary {
+    color: #b94044 !important;
+}
+.prof_dp img{
+    object-fit: cover;
+}
+.m-b-20 {
+    margin-bottom: 0px;
+}

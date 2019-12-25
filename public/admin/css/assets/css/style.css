@@ -7629,7 +7629,7 @@ table tbody .border-bottom-info td {
 .pcoded .pcoded-navbar[active-item-theme="theme4"] .pcoded-item > li.active > a {
   /*background: -webkit-gradient(linear, left top, right top, from(#004ef9), to(#79a3ff)) !important;
   background: linear-gradient(to right, #004ef9, #79a3ff) !important;*/
-  background: linear-gradient(to right, #4fb8dd, #92d5d3) !important;
+  background: #b94044 !important;
   color: #fff !important; }
   .pcoded .pcoded-navbar[active-item-theme="theme4"] .pcoded-item > li.active > a .pcoded-micon {
     color: #fff !important; }
@@ -8348,7 +8348,7 @@ table tbody .border-bottom-info td {
   .pcoded .pcoded-header[header-theme="theme4"] a {
     color: #fff; }
 .pcoded .pcoded-header[header-theme="theme5"] {
-  background: linear-gradient(5deg, #3cb0e0, #a6ded0); }
+  background: #b94044; }
   .pcoded .pcoded-header[header-theme="theme5"] a {
     color: #fff; }
 .pcoded .pcoded-header[header-theme="theme6"] {
@@ -8642,15 +8642,15 @@ body.menu-bottom #collapse-menu {
 
 /**====== Basic-Buttons css Start ======**/
 .btn-primary, .sweet-alert button.confirm, .wizard > .actions a {
-  background-color: #3cb0e0;
-    border-color: #3cb0e0; 
+  background-color: #b94044;
+    border-color: #b94044; 
   color: #fff;
   cursor: pointer;
   -webkit-transition: all ease-in 0.3s;
   transition: all ease-in 0.3s; }
   .btn-primary:hover, .sweet-alert button.confirm:hover, .wizard > .actions a:hover {
-    background-color: #3cb0e0;
-    border-color: #3cb0e0; 
+    background-color: #b94044;
+    border-color: #b94044; 
   }
   /*#a6ded0, #3cb0e0)*/
   .btn-primary:active, .sweet-alert button.confirm:active, .wizard > .actions a:active {
@@ -9161,7 +9161,7 @@ body.menu-bottom #collapse-menu {
   width: 100% !important; }
 
 .form-group {
-  margin-bottom: 1.25em; }
+  margin-bottom: 1em; }
   .form-group .form-control-lg {
     font-size: 1.25em; }
   .form-group .form-control-round {
@@ -9517,7 +9517,7 @@ body.menu-bottom #collapse-menu {
       Form group-add-on css start
 ==========================  **/
 .input-group {
-  margin-bottom: 1.25em; }
+  margin-bottom: 6px; }
 
 .input-group-addon {
   background-color: #4099ff;
@@ -11478,7 +11478,8 @@ table.footable-paging-center > tfoot > tr.footable-paging > td {
 .common-img-bg {
   background-size: cover;
 /*  background: linear-gradient(45deg, #4099ff, #73b4ff);*/
-  background: linear-gradient(45deg, #a6ded0, #3cb0e0);
+  /*background: linear-gradient(45deg, #a6ded0, #3cb0e0);*/
+  background: #b94044;
   height: 100%; }
 
 .signin-card .auth-box button i, .signup-card .auth-box button i, .login-card .auth-box button i {
@@ -11599,7 +11600,7 @@ table.footable-paging-center > tfoot > tr.footable-paging > td {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #2196F3;
+  background-color: #b94044;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

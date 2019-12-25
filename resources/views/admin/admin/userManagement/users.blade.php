@@ -1,24 +1,16 @@
-@section('title','Mumtalikati/USER')
+@section('title','Mumtalikati/Users')
 @extends('admin.layout.dashboardLayout')
-
 @section('content')
 <style type="text/css">
     .dataTables_wrapper{
         width: 100%;
     }
-    .btn.green{
+    /*.btn.green{
         background: #72c8d8;
         color: #fff;
         margin:10px 10px;
-    }
-
-    .user_excel_btn {
-       
-        /*float: right;*/
-    }
-    /*.content{
-        display: unset;
     }*/
+
     #unilife_myModal .modal-header{
         display: unset;
         background: #72c8d8;
@@ -63,13 +55,13 @@
                         <div class="container-fluid">
                             <div class="portlet-title">
                                 <div class="caption">
-                                    <h3>User List</h3>
+                                    <h3>Users List</h3>
                                 </div>
                             </div>
-                            <div class="row user_excel_btn">
+                            <!-- <div class="row user_excel_btn">
                                                          
                                 <a class="btn green" href="{{url('admin/add-user')}}"> <i class="fa fa-plus"></i> Add User </a>
-                            </div>
+                            </div> -->
                             
                             <div class="row" >
                                 <table class="table table-hover table-striped" id="usertable" style="width: 100%!important">
@@ -91,12 +83,12 @@
                             <div class="table-btn">
                                 <form method="post" id="select-delete" ">
                                     @csrf
-                                    <input class="checker" type="hidden" name="someCheckbox[]" value="">
+                                    <!-- <input class="checker" type="hidden" name="someCheckbox[]" value="">
                                     <div class="btn-group pull-right m-b-10">
                                         <button id="sample_editable_1_new" type="submit" class="btn green">
                                         Mark as delete 
                                         </button>
-                                    </div>
+                                    </div> -->
                                 </form>
                                 <form method="post" action="{{url('admin/changeStatusActive')}}">
                                     @csrf

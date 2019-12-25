@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Login </title>
+    <title>@yield('title') </title>
     <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -28,28 +28,25 @@
     <link rel="stylesheet" type="text/css" href="{{url('public/admin/css/assets/icon/icofont/css/icofont.css')}}">
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="{{url('public/admin/css/assets/css/style.css')}}">
+    <!-- Developer css -->
+    <link rel="stylesheet" type="text/css" href="{{url('public/admin/css/developer.css')}}">
     <style type="text/css">
-    label {
-        display: inline-block;
-        margin-bottom: .5rem;
-        color: red;
-        float: left;
-    }
-/*.col-sm-5.col-xs-12.forgot-phone.text-right {
-    text-align: right;
-    display: block;
-    float: right;
-    padding: 9px 7px;
-    flex: unset;
-}*/
-
-.row.m-t-25.text-left{
-    flex: unset !important;
-    display: block !important;
-}
-.logo-wrap img{width: 100px;
-height: auto;}
-
+        label {
+            display: inline-block;
+            margin-bottom: 0;
+            color:
+            red;
+            text-align: left;
+            width: 100%;
+        }
+        .row.m-t-25.text-left{
+            flex: unset !important;
+            display: block !important;
+        }
+        .logo-wrap img{
+            width: 150px;
+            height: auto;
+        }
     </style>
 </head>
 
