@@ -1,4 +1,4 @@
-@section('title','DASHBOARD')
+@section('title','Mumtalikati/Admin Profile')
 @extends('admin.layout.dashboardLayout')
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <!-- <link href="{{asset('public/admin/css/bootstrap/bootstrap.min.css')}}" rel="stylesheet"> -->
@@ -66,7 +66,7 @@
                                                     @if(!empty(Auth::guard('admins')->user()->image))
                                                     <img class="img-fluid radius profile_image2" src="{{asset('public/admin/profile_img/'.Auth::guard('admins')->user()->image)}}" id="profile_image">
                                                     @else
-                                                    <img class="img-fluid radius profile_image2" src="{{asset('public/frontend/img/profile2.jpg')}}" id="profile_image">
+                                                    <img class="img-fluid radius profile_image2" src="{{asset('public/frontend/img/defaultuser.png')}}" id="profile_image">
                                                     @endif                                                    
                                                 </div>   
                                             </div>
@@ -163,7 +163,7 @@
                                                     @if(!empty(Auth::guard('admins')->user()->image))
                                                     <img class="img-responsive radius profile_image2" src="{{asset('public/admin/profile_img/'.Auth::guard('admins')->user()->image)}}" id="profile_image">
                                                     @else
-                                                    <img class="img-responsive radius profile_image2" src="{{asset('public/frontend/img/profile2.jpg')}}" id="profile_image">
+                                                    <img class="img-responsive radius profile_image2" src="{{asset('public/frontend/img/defaultuser.png')}}" id="profile_image">
                                                     @endif
                                                 </div>
                                             </div>

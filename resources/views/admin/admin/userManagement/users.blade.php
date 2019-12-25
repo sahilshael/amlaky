@@ -81,29 +81,29 @@
                                 </table>
                             </div>
                             <div class="table-btn">
-                                <form method="post" id="select-delete" ">
+                                <form method="post" id="select-delete" >
                                     @csrf
                                     <!-- <input class="checker" type="hidden" name="someCheckbox[]" value="">
                                     <div class="btn-group pull-right m-b-10">
-                                        <button id="sample_editable_1_new" type="submit" class="btn green">
+                                        <button id="selectDelete" type="button" class="btn green">
                                         Mark as delete 
                                         </button>
                                     </div> -->
                                 </form>
-                                <form method="post" action="{{url('admin/changeStatusActive')}}">
+                                <form method="post" id="select-active">
                                     @csrf
                                     <input class="checker" type="hidden" name="someCheckbox[]" value="">
                                     <div class="btn-group pull-right m-b-10">
-                                        <button id="sample_editable_1_new" type="submit" class="btn green">
+                                        <button id="selectActive" type="button" class="btn green selectall_btn">
                                         Selected Status Active 
                                         </button>
                                     </div>
                                 </form>
-                                <form method="post" action="{{url('/changeStatusInactive')}}">
+                                <form method="post" id="select-inactive">
                                     @csrf
                                     <input class="checker" type="hidden" name="someCheckbox[]" value="">
                                     <div class="btn-group pull-right m-b-10">
-                                        <button id="sample_editable_1_new" type="submit" class="btn green">
+                                        <button id="selectInactive" type="button" class="btn green selectall_btn">
                                         Selected Status Inactive 
                                         </button>
                                     </div>
@@ -220,6 +220,64 @@ $(function() {
             // order: [[ 1, 'asc' ]] 
         });            
     
+    });
+</script>
+<script type="text/javascript">
+    $('#selectDelete').click(function(){
+        $.ajax({
+            url:"{{url('/admin/select-user-delete')}}",
+            method:'post',
+            data:$('#select-delete').serialize(),
+            success: function(response){
+                if (response.status == 'true') {
+                    console.log('succes: ' + response);
+                    location.replace("{{url('admin/users')}}");
+                }
+            },error:function(errorMessage){
+                console.log('Error: ' + errorMessage);
+                location.replace("{{url('admin/users')}}");
+            }
+
+        });
+    });
+</script>
+<script type="text/javascript">
+    $('#selectInactive').click(function(){
+        $.ajax({
+            url:"{{url('/admin/select-user-inactive')}}",
+            method:'post',
+            data:$('#select-inactive').serialize(),
+            success: function(response){
+                if (response.status == 'true') {
+                    console.log('succes: ' + response);
+                    location.replace("{{url('admin/users')}}");
+                }
+            },error:function(errorMessage){
+                console.log('Error: ' + errorMessage);
+                location.replace("{{url('admin/users')}}");
+            }
+
+        });
+    });
+</script>
+<script type="text/javascript">
+    $('#selectActive').click(function(){
+        $.ajax({
+            url:"{{url('/admin/select-user-active')}}",
+            method:'post',
+            data:$('#select-active').serialize(),
+            success: function(response){
+                if (response.status == 'true') {
+                    console.log('succes: ' + response);
+                    location.replace("{{url('admin/users')}}");
+
+                }
+            },error:function(errorMessage){
+                console.log('Error: ' + errorMessage);
+                location.replace("{{url('admin/users')}}");
+            }
+
+        });
     });
 </script>
 @stop

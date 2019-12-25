@@ -6,7 +6,12 @@
     </div>
     <div class="pic_top pos_rel text-center">
         <div class="pos_rel pic_pos">
-            <img src="{{asset('public/frontend/img/profile2.jpg')}}" class="img-fluid" alt="">
+            <?php $img =  $user->profile_image;?>
+            @if(empty($img))
+                <img src="{{asset('public/frontend/img/defaultuser.png')}}" class="img-fluid" alt="">
+            @else
+                <img src="{{asset('public/frontend/profile_img/'.$img)}}" class="img-fluid" alt="">
+            @endif
         </div>
     </div>
     <div class="tenant_img_head pos_rel text-center">

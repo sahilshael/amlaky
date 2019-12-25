@@ -47,4 +47,8 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
 
 	Route::match(['get','post'],'/users','admin\UserManagementController@Users');	
 	Route::match(['get','post'],'/ajax-users','admin\UserManagementController@ajaxUsers');
+
+	Route::match(['get','post'],'/select-user-delete','admin\UserManagementController@selectUserDelete');
+	Route::match(['get','post'],'/select-user-active','admin\UserManagementController@selectUserStatusActive');
+	Route::match(['get','post'],'/select-user-inactive','admin\UserManagementController@selectUserStatusInactive');
 });

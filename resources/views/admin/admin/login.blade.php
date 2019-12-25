@@ -58,13 +58,16 @@
                                 </div>
                                 <hr/>
                                 <div class="row">
-                                    <div class="col-md-10">
-                                        <p class="text-inverse text-left m-b-0">Thank you and enjoy our website.</p>
-                                        <p class="text-inverse text-left"><b>Your Authentication Team</b></p>
+                                    <div class="col-md-12">
+                                        <div class="cort_txt text-center">
+                                            <p>Copyright © <?php echo date('Y'); ?> MUMTALIKATI. All Rights Reserved.</p>
+                                        </div>
                                     </div>
-                                    <div class="col-md-2">
+                                        <!-- <p class="text-inverse text-left m-b-0">Thank you and enjoy our website.</p>
+                                        <p class="text-inverse text-left"><b>Your Authentication Team</b></p> -->
+                                    <!-- <div class="col-md-2"> -->
                                         <!-- <img src="{{url('public/assets/images/unilife-icon.png')}}" alt="small-logo.png"> -->
-                                    </div>
+                                    <!-- </div> -->
                                 </div>
 
                             </div>

@@ -42,7 +42,7 @@
                                                                 <span class="img_edtt pos_rel">
                                                                     <?php $img =  $user->profile_image;?>
                                                                     @if(empty($img))
-                                                                    <img src="{{asset('public/frontend/img/profile2.jpg')}}" class="img-fluid img-responsive" id="prof_ch">
+                                                                    <img src="{{asset('public/frontend/img/defaultuser.png')}}" class="img-fluid img-responsive" id="prof_ch">
                                                                     @else
                                                                     <img src="{{asset('public/frontend/profile_img/'.$img)}}" class="img-fluid img-responsive" id="prof_ch">
                                                                     @endif

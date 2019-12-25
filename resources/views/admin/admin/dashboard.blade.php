@@ -1,4 +1,4 @@
-@section('title','MUMTALIKATI/DASHBOARD')
+@section('title','Mumtalikati/Admin Dashboard')
 @extends('admin.layout.dashboardLayout')
 @section('content')
 <style type="text/css">
