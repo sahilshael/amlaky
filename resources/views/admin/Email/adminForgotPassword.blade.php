@@ -27,7 +27,7 @@
 								</tr>
 								<tr>
 									<td>
-										<p style="margin-bottom:0px; font-size:18px; font-weight:bold; color: #505050">Hi, <span>Mark Henry</span></p>
+										<p style="margin-bottom:0px; font-size:18px; font-weight:bold; color: #505050">Hi, <span>{{$name}}</span></p>
 										<p style="margin: 9px 30px 40px; line-height:22px; font-size:14px; color: #505050; letter-spacing: 1px;">
 											We've received a request to reset your password.<br>
 											<br>
@@ -38,7 +38,7 @@
 								</tr>
 								<tr>
 									<td>								
-										<a style="color: #fff; background: #b94044; padding: 10px 14px; text-decoration: none; font-weight: 600" href="{{url('admin-reset-password')}}/<?php echo $id; ?>/<?php echo $random_number;?>">Reset Password</a>
+										<a style="color: #fff; background: #b94044; padding: 10px 14px; text-decoration: none; font-weight: 600" href="{{url('/admin/reset-password')}}/<?php echo $id; ?>/<?php echo $random_number;?>">Reset Password</a>
 									</td>
 								</tr>
 								<tr>

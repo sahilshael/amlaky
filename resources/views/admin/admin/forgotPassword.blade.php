@@ -27,7 +27,7 @@
                         <div class="auth-box">
                         <h4 class="text-center txt-primary" style="color: black;">Forgot Password</h4>
                         <br>
-                        <form class="md-float-material" method="post" action="{{url('/forgot-password')}}" id="forgot_password">
+                        <form class="md-float-material" method="post" action="{{url('/admin/forgot-password')}}" id="forgot_password">
                             @csrf
                             <!-- <input type="hidden" name="remember_token" value="{{ csrf_token() }}"> -->
                             <div class="form-group">

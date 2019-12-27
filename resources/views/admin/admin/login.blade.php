@@ -47,7 +47,7 @@
                                         </div>
                                     </div> -->
                                     <div class="col-sm-5 col-xs-12 forgot-phone text-right">
-                                        <a href="{{url('/forgot-password')}}" class="text-right f-w-600 text-inverse"> Forgot Your Password?</a>
+                                        <a href="{{url('admin/forgot-password')}}" class="text-right f-w-600 text-inverse"> Forgot Your Password?</a>
                                         <!-- auth-reset-password.html -->
                                     </div>
                                 </div>

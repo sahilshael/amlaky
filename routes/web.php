@@ -37,9 +37,9 @@ Route::match(['get','post'],'/admin','admin\AdminController@Login');
 Route::match(['get','post'],'/forgot-password','UserController@forgotPassword');
 Route::match(['get','post'],'/reset-password/{id}/{random_number}', 'UserController@resetPassword');
 
+Route::match(['get','post'],'admin/forgot-password','admin\AdminController@forgotPassword');
+Route::match(['get','post'],'admin/reset-password/{id}/{random_number}', 'admin\AdminController@adminresetPassword');
 Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
-	Route::match(['get','post'],'/forgot-password','admin\AdminController@forgotPassword');
-	Route::match(['get','post'],'/reset-password/{id}/{random_number}', 'admin\AdminController@adminresetPassword');
 	Route::match(['get','post'],'/dashboard','admin\AdminController@Dashboard');
 	Route::match(['get','post'],'/logout','admin\AdminController@Logout');
 	Route::match(['get','post'],'/profile','admin\AdminController@Profile');

@@ -106,7 +106,8 @@ class AdminController extends Controller
 		   else
 		   	{
 		      	Session::flash('error','Password could not be change');
-		      	return view('admin.admin.resetError');
+                // return view('admin.admin.resetError');
+		      	return redirect()->back();
 		   	}
 		}
 		$alreadydata = DB::table('admins')->where('id',$id)->first();
