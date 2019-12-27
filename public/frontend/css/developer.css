@@ -1,0 +1,10 @@
+a.my_link{
+	text-transform: capitalize;
+	font-size: 15px;
+	font-style: italic;
+	color: #777;
+}
+a.my_link:hover{
+	text-decoration: underline;
+	color: #b94044;	
+}

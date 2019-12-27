@@ -21,6 +21,7 @@ class UserController extends Controller
             $user->first_name = $data['first_name'];
             $user->last_name = $data['last_name'];
             $user->email = $data['email'];
+            $email = $user->email;
             $user->contact = $data['contact'];
             $user->company = $data['company'];
             $user->decoded_password = $data['password'];
@@ -29,6 +30,15 @@ class UserController extends Controller
             // $user->otp = rand(1000 , 9999 );
             $user->otp = 1234;
 
+            $message = [
+                'name'    =>     $user->first_name,
+                'otp'      =>    $user->otp,
+            ];
+
+            Mail::send('frontend.email.OTPVerify', $message, function($message) use($email)
+            {
+                $message->to($email)->subject('Verify OTP'); 
+            });
             if($user->save()){
                 $userId = $user->id;
                 return $arrayName = array('status' => 'true','userId'=>$userId);
@@ -196,6 +206,68 @@ class UserController extends Controller
         }else{
             return "false";
         }
+    }
+
+    public function forgotPassword(Request $req)
+    {
+        if($req->isMethod('post'))
+        {
+            $data        =  $req->all();
+            $email       =  $data['email'];
+            $check       =  DB::table('users')->where('email',$email)->first();
+            if($check){
+                $email          =  $check->email;     
+                $encoded_id     = base64_encode($check->id);
+                $random_number  = rand();
+                $message = [
+                            'name'           =>     $check->first_name,
+                            'id'            =>     $encoded_id,
+                            'random_number' =>     $random_number
+                            ];
+                Mail::send('frontend.email.ForgotPassword', $message, function($message) use($email)
+                {
+                    $message->to($email)->subject('Forgot Password'); 
+                });
+                $update  =   DB::table('users')->where('id',$check->id)->update(['reset_password'=>$random_number]);
+                Session::flash('success','Reset Password Link Send To Your Registered Email Address');
+                return Redirect('/signup-cards');
+            }else{
+                Session::flash('error','this email id doesnot exist');
+                return Redirect()->back();
+            }
+        }
+        return view('frontend.forgotPassword');
+    }
+
+    public function resetPassword(Request $req,$id,$random_number)
+    {
+
+        $id = base64_decode($id);
+        if($req->isMethod('post'))
+        {
+            $data                        = $req->all();
+            $newdata['password']         =  Hash::make($data['password']); 
+            $newdata['decoded_password'] = $data['password'];
+            $newdata['reset_password']   = '0';
+            if(DB::table('users')->where('id',$id)->update($newdata))
+            {
+                Session::flash('success','Password Changed Successfully');
+                return view('frontend.resetThanku');
+            }
+           else
+            {
+                Session::flash('error','Password not changed');
+                return view('frontend.resetError');
+            }
+        }
+        $alreadydata = User::where('id',$id)->first();
+        if($alreadydata->reset_password==$random_number)
+        {
+            return view('frontend.resetPassword')->with(['id'=>$id,'random_number'=>$random_number]);
+        }else{
+            Session::flash('error', 'Your Link has been expired please send again !');
+            return view('frontend.linkExpire');
+        } 
     }
 
 }

@@ -104,6 +104,9 @@
                                                         <input type="password" name="password" placeholder="Enter password" class="form-control">
                                                         <!-- <i class="fa fa-user"></i> -->
                                                     </div>
+                                                    <div class="forg_link text-right">
+                                                    	<a href="{{url('forgot-password')}}" class="my_link">forgot password</a>
+                                                    </div>
                                                     <div class="form-group text-center">
                                                         <button class="btn btn-primary" type="submit">Log In </button> 
                                                     </div>

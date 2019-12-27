@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('company')->nullable();
             $table->string('properties_managed');
             $table->string('otp');
+            $table->string('reset_password')->nullable();
             $table->enum('otp_verified', ['yes', 'no'])->default('no');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();

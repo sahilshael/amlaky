@@ -19,3 +19,4 @@
 <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/css/bootstrap-multiselect.css')}}">
 <link href="{{asset('public/frontend/css/style.css')}}" rel='stylesheet' type='text/css' />
 <link href="{{asset('public/frontend/css/responsive-style.css')}}" rel='stylesheet' type='text/css' />
+<link href="{{asset('public/frontend/css/developer.css')}}" rel='stylesheet' type='text/css' />
