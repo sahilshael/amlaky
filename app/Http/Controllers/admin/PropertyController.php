@@ -167,6 +167,7 @@ class PropertyController extends Controller
     public function ajaxPropertySubTypes(Request $request,$id)  
     {   
         $types_data = DB::table('property_sub_types')
+                            ->where('property_type_id', $id)
                             ->select('property_sub_types.*','property_types.property_type')
                             ->join('property_types','property_sub_types.property_type_id','property_types.id');
         // dd($types_data);
