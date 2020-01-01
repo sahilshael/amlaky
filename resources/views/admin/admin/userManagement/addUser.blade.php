@@ -1,5 +1,3 @@
-
-
 @section('title','UNILIFE/ADD_USER')
 @extends('layout.dashboard_layout')
 @section('content')
