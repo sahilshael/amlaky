@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Hash;
 use Redirect;
-use App\Admin , App\User, App\PropertyTypes;
+use App\Admin , App\User, App\PropertyTypes, App\PropertySubTypes;
 use Carbon\Carbon;
 use DataTables;
 
@@ -104,7 +104,7 @@ class PropertyController extends Controller
         if($request->isMethod("post")){
             $data = $request->all();
             // dd($data);
-            $insert=DB::table('property_types')->insert(['property_type'=>$data['property_type']]);
+            $insert=PropertyTypes::create(['property_type'=>$data['property_type']]);
             if($insert){
                 session::flash('success','Property type added successfully');
                 return redirect('admin/property-types');
@@ -124,7 +124,7 @@ class PropertyController extends Controller
         if($request->isMethod("post")){
             $data = $request->all();
             // dd($data);
-            $update=DB::table('property_types')->where('id',$id)->update(['property_type'=>$data['property_type']]);
+            $update=PropertyTypes::where('id',$id)->update(['property_type'=>$data['property_type']]);
             if($update){
                 session::flash('success','Property type added successfully');
                 return redirect('admin/property-types');
@@ -194,7 +194,7 @@ class PropertyController extends Controller
         if($request->isMethod("post")){
             $data = $request->all();
             // dd($data);
-            $insert=DB::table('property_sub_types')->insert(['property_type_id'=>$id,
+            $insert=PropertySubTypes::create(['property_type_id'=>$id,
                                                             'property_subtype'=>$data['property_subtype']]);
             if($insert){
                 session::flash('success','Property type added successfully');
@@ -216,7 +216,7 @@ class PropertyController extends Controller
         if($request->isMethod("post")){
             $data = $request->all();
             // dd($data);
-            $update=DB::table('property_sub_types')->where('id',$id)->update(['property_subtype'=>$data['property_subtype']]);
+            $update=PropertySubTypes::where('id',$id)->update(['property_subtype'=>$data['property_subtype']]);
             if($update){
                 session::flash('success','Property type added successfully');
                 return redirect('admin/property-sub-type/'.$id);
