@@ -156,9 +156,9 @@
                     last_name: {
                         required:true,
                     },
-                    image: {
-                        required:true,
-                    },
+                    // image: {
+                    //     required:true,
+                    // },
                     contact: {
                         required: true,
                         number: true,
@@ -191,7 +191,7 @@
     </script>
     <script type="text/javascript">
         $('#modal-yes').click(function(){
-            alert('submit');
+            // alert('submit');
             $('#test').val('1');
             $('#editprofile-form').submit();
         });

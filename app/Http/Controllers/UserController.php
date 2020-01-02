@@ -139,6 +139,8 @@ class UserController extends Controller
         
         if($request->isMethod('post')){
             $data=$request->all();
+            unset($data['_token']);
+            unset($data['test']);
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
                 $rand = uniqid();
@@ -148,13 +150,10 @@ class UserController extends Controller
                 if ($extension == 'jpg'||$extension == 'jpeg'||$extension == 'png'||$extension == 'gif') {
                     $image->move($destination, $new_name);
                     $fileName  = $new_name;
+                    $data['profile_image'] = $fileName;
                 }
             }
-            $update=DB::table('users')->where('id',$user->id)->update([
-                                                            'first_name'=>$data['first_name'],
-                                                            'last_name'=>$data['last_name'],
-                                                            'contact'=>$data['contact'],
-                                                            'profile_image'=>$fileName,]);
+            $update=DB::table('users')->where('id',$user->id)->update($data);
             if ($update) {
                 session::flash('success', "Data updated successfully.");
                 return Redirect::back();
