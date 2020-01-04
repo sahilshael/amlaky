@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Crypt;
 use App\User;
+use App\PropertyTypes;
+use App\PropertySubTypes;
 
 class UserController extends Controller
 {
@@ -267,6 +269,28 @@ class UserController extends Controller
             Session::flash('error', 'Your Link has been expired please send again !');
             return view('frontend.linkExpire');
         } 
+    }
+
+    public function landlordAddProperty(Request $request){
+
+        $property_types =  PropertyTypes::get();
+        $property_types = json_decode(json_encode($property_types),true);  //dd($property_types);
+
+        return view('frontend.propertyManagement.landlordAddProperty')->with(compact('property_types'));
+    }
+
+    public function getPropertySubTypes(Request $request){
+        
+        $data = $request->all();
+
+        $propert_id = $data['propert_id'];
+
+        $sub_property_types = PropertySubTypes::where('property_type_id',$propert_id)->get();
+        $sub_property_types = json_decode(json_encode($sub_property_types),true);
+
+        // dd($sub_property_types);
+
+        return view('frontend.propertyManagement.include.element.refresh_sub_property')->with(compact('sub_property_types'));
     }
 
 }

@@ -201,7 +201,7 @@ class AdminController extends Controller
 
         $data               = $request->input();
         $id                 = Auth::guard('admins')->user()->id;
-        $password   		= $data['password'];
+        $password           = $data['password'];
         $admin              = Admin::where('id',$id)->first();
         $admin              = json_decode(json_encode($admin),true);
 
@@ -210,5 +210,10 @@ class AdminController extends Controller
         }else{
             return "false";
         }
+    }
+
+    public function cities(Request $request){
+
+        // return view('admin.profile')
     }
 }

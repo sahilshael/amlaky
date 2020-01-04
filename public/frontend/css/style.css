@@ -6314,3 +6314,44 @@ ul.multi_imgupload{
     color:red;
     font-size: 13px;
 }
+
+/*hotel section Rohit 27dec*/
+.ame_sec .form-check{
+    padding: 0;
+    /*padding: 4px 20px 0;*/
+}
+.hotel_ame{
+    border: 1px solid #ddd;
+    padding: 0px 15px;
+    margin: 10px 0;
+}
+.ame_sec label{
+    font-size: 14px;
+}
+.ame_sec .form-group{
+    margin-bottom: 4px;
+}
+.ht_add_prop i{
+    font-size: 30px;
+    color: #b94044;
+    cursor: pointer;
+}
+/*End*/
+
+
+/*--Map css--*/
+
+#map, .map {
+    width: 100%;
+    height: 250px;
+}
+.aml_map #pac-input {
+    width: 60%;
+    height: 35px;
+    margin: 13px 0;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/*--End--*/

@@ -7,14 +7,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <!-- <a class="nav-link" href="aboutUs.php">About Us</a> -->
+                    <!-- <li class="nav-item active">
                         <a class="nav-link" href="javascript:;"><i class="fas fa-home"></i> List Your Property</a>
                     </li>
                     <li class="nav-item">
-                        <!-- <a class="nav-link" href="area-guide.php">Area Guide</a> -->
                         <a class="nav-link" href="javascript:;"><i class="fas fa-cogs"></i> List Your Services</a>
-                    </li>
+                    </li> -->
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="javascript:;">Property Management</a>
                     </li> -->
@@ -47,7 +45,7 @@
                     </li>
                     <li class="nav-item my_add">
                         <!-- <a class="nav-link" href="landlordAddProperty-new-home.php"><i class="fas fa-plus"></i>Add Property</a> -->
-                        <a class="nav-link" href="javascript:;"><i class="fas fa-plus"></i>Add Property</a>
+                        <a class="nav-link" href="{{url('landlord-add-property')}}"><i class="fas fa-plus"></i>Add Property</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="javascript:;"><i class="fas fa-language"></i> </a>

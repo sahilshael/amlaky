@@ -29,6 +29,9 @@ Route::group(['middleware'=>['userlogin']],function(){
 	Route::match(['get','post'],'/landlord-editprofile','UserController@landlordEditProfile');
 	Route::match(['get','post'],'/landlord-change-password','UserController@landlordResetPassword');
 	Route::match(['get','post'],'/landlord-check-password','UserController@landlordCurrentPassword');
+	Route::match(['get','post'],'/landlord-add-property','UserController@landlordAddProperty');
+	Route::match(['get','post'],'/get-property-subTypes','UserController@getPropertySubTypes');
+
 });
 define('profile_img', 'public/frontend/profile_img');
 
@@ -39,8 +42,11 @@ Route::match(['get','post'],'/reset-password/{id}/{random_number}', 'UserControl
 
 Route::match(['get','post'],'admin/forgot-password','admin\AdminController@forgotPassword');
 Route::match(['get','post'],'admin/reset-password/{id}/{random_number}', 'admin\AdminController@adminresetPassword');
+
+
 Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
 	Route::match(['get','post'],'/dashboard','admin\AdminController@Dashboard');
+	Route::match(['get','post'],'/cities','admin\AdminController@cities');
 	Route::match(['get','post'],'/logout','admin\AdminController@Logout');
 	Route::match(['get','post'],'/profile','admin\AdminController@Profile');
 	Route::match(['get','post'],'/check-current-password','admin\AdminController@checkCurrentPassword');
@@ -68,7 +74,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
 	Route::match(['get','post'],'/check-property-type','admin\PropertyController@checkPropertyType');
 	Route::match(['get','post'],'/check-edit-property-type/{id}','admin\PropertyController@checkEditPropertyType');
 
-							//===========Property Sub Type==============
+	//=====================================Property Sub Type======================================
 	Route::match(['get','post'],'/property-sub-type/{id}','admin\PropertyController@propertySubTypes');	
 	Route::match(['get','post'],'/ajax-property-sub-types/{id}','admin\PropertyController@ajaxPropertySubTypes');
 	Route::match(['get','post'],'/add-property-sub-type/{id}','admin\PropertyController@addPropertySubType');

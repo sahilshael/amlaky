@@ -4,6 +4,7 @@
             <img src="{{asset('public/frontend/img/menu.png')}}" class="img-fluid">
         </a>
     </div>
+    <?php $user = Auth::user();?>
     <div class="pic_top pos_rel text-center">
         <div class="pos_rel pic_pos">
             <?php $img =  $user->profile_image;?>
