@@ -55,6 +55,9 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
 
 	Route::match(['get','post'],'/users','admin\UserManagementController@Users');	
 	Route::match(['get','post'],'/ajax-users','admin\UserManagementController@ajaxUsers');
+	Route::match(['get','post'],'/edit-users/{id}','admin\UserManagementController@editUsers');
+	Route::match(['get','post'],'/check-user-edit-contact/{id}','admin\UserManagementController@checkUserEditContact');
+	Route::match(['get','post'],'/user-delete/{id}','admin\UserManagementController@userDelete');
 
 	Route::match(['get','post'],'/select-user-delete','admin\UserManagementController@selectUserDelete');
 	Route::match(['get','post'],'/select-user-active','admin\UserManagementController@selectUserStatusActive');
@@ -69,10 +72,6 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
 	Route::match(['get','post'],'/property-types-active','admin\PropertyController@propertyTypesActive');
 	Route::match(['get','post'],'/property-types-inactive','admin\PropertyController@propertyTypesInactive');
 	Route::match(['get','post'],'/property-types-delete','admin\PropertyController@propertyTypesDelete');
-	Route::match(['get','post'],'/add-property-type','admin\PropertyController@addPropertyType');
-	Route::match(['get','post'],'/edit-property-type/{id}','admin\PropertyController@editPropertyType');
-	Route::match(['get','post'],'/check-property-type','admin\PropertyController@checkPropertyType');
-	Route::match(['get','post'],'/check-edit-property-type/{id}','admin\PropertyController@checkEditPropertyType');
 
 	//=====================================Property Sub Type======================================
 	Route::match(['get','post'],'/property-sub-type/{id}','admin\PropertyController@propertySubTypes');	
@@ -81,6 +80,19 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
 	Route::match(['get','post'],'/edit-property-sub-type/{id}','admin\PropertyController@editPropertySubType');
 	Route::match(['get','post'],'/check-property-sub-type','admin\PropertyController@checkPropertySubType');
 	Route::match(['get','post'],'/check-edit-property-sub-type/{id}','admin\PropertyController@checkEditPropertySubType');
+	Route::match(['get','post'],'/property-sub-types-active','admin\PropertyController@propertySubTypesActive');
+	Route::match(['get','post'],'/property-sub-types-inactive','admin\PropertyController@propertySubTypesInactive');
 
 	//======================================Property Management Ends==============================
+
+	//======================================CITY========================================
+
+	Route::match(['get','post'],'/city','admin\AdminController@city');	
+	Route::match(['get','post'],'/ajax-city','admin\AdminController@ajaxCity');
+	Route::match(['get','post'],'/add-city','admin\AdminController@addCity');
+	Route::match(['get','post'],'/edit-city/{id}','admin\AdminController@editCity');
+	Route::match(['get','post'],'/check-city','admin\AdminController@checkCity');
+	Route::match(['get','post'],'/check-edit-city/{id}','admin\AdminController@checkEditCity');
+
+	//======================================CITY Ends========================================
 });

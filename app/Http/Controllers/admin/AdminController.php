@@ -10,12 +10,14 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Auth;
 use App\Admin;
+use App\City;
 use Session;
 use DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 use \Carbon\Carbon;
+use DataTables;
 
 class AdminController extends Controller
 {
@@ -215,5 +217,93 @@ class AdminController extends Controller
     public function cities(Request $request){
 
         // return view('admin.profile')
+    }
+
+
+    //========================================================CITY====================================================
+
+
+    public function City(Request $request) {   
+        
+        return view('admin.admin.cityManagement.city');
+        
+    }
+    public function ajaxCity(Request $request)  
+    {   
+        $city_data = City::select('cities.*');
+        return DataTables::of($city_data)
+                    ->addIndexColumn()
+                    ->addColumn('checkbox',function ($city_data) {
+                                                
+                       return '<input type="checkbox" id="'.$city_data->id.'" value="'.$city_data->id.'"  class="child_all" name="someCheckbox[{{$types_data}}]" />';
+                    })
+                    ->addColumn('action',function ($city_data) {
+                                                
+                       // return '<a href="'.url("admin/edit-property-type/".$types_data->id).'" > <i class="fa fa-edit"></i> </a>'.' '.'<a href="'.url("/delete_user/".$types_data->id).'" ><i class="fa fa-trash"></i></a>';
+                       return '<a href="'.url("admin/edit-city/".$city_data->id).'" > <i class="fa fa-edit"></i> </a>';
+                    })
+                    ->editColumn('created_at', function ($city_data) {
+                        return $city_data->created_at ? with(new Carbon($city_data->created_at))->format('Y-m-d') : '';
+                    })
+                    ->escapeColumns([])
+                    ->make(true);    
+    }
+
+    public function addCity(Request $request){
+        if($request->isMethod("post")){
+            $data = $request->all();
+            // dd($data);
+            $insert=City::create(['city_name'=>$data['city_name']]);
+            if($insert){
+                session::flash('success','City added successfully');
+                return redirect('admin/city');
+            }else{
+                session::flash('error','Something went wrong');
+                return redirect('admin/city');
+            }
+        }
+
+        return view('admin.admin.cityManagement.addCity');
+    }
+
+    public function editCity(Request $request,$id){
+
+        $details=DB::table('cities')->where('id',$id)->first();
+
+        if($request->isMethod("post")){
+            $data = $request->all();
+            // dd($data);
+            $update=City::where('id',$id)->update(['city_name'=>$data['city_name']]);
+            if($update){
+                session::flash('success','City edited successfully');
+                return redirect('admin/city');
+            }else{
+                session::flash('error','Something went wrong');
+                return redirect('admin/city');
+            }
+        }
+
+        return view('admin.admin.cityManagement.editCity')->with('details',$details);
+    }
+
+    public function checkCity(Request $request){
+        $data=$request->all();
+        $check=DB::table('cities')->where('city_name',$data['city_name'])->first();
+        if($check){
+            return 'false';
+        }else{
+            return 'true';
+        }
+    }
+
+    public function checkEditCity(Request $request,$id){
+        $data=$request->all();
+        // dd($id);
+        $check=DB::table('cities')->where('id','<>',$id)->where('city_name',$data['city_name'])->first();
+        if($check){
+            return 'false';
+        }else{
+            return 'true';
+        }
     }
 }

@@ -173,10 +173,10 @@ class PropertyController extends Controller
         // dd($types_data);
         return DataTables::of($types_data)
                     ->addIndexColumn()
-                    // ->addColumn('checkbox',function ($types_data) {
+                    ->addColumn('checkbox',function ($types_data) {
                                                 
-                    //    return '<input type="checkbox" id="'.$types_data->id.'" value="'.$types_data->id.'"  class="child_all" name="someCheckbox[{{$types_data}}]" />';
-                    // })
+                       return '<input type="checkbox" id="'.$types_data->id.'" value="'.$types_data->id.'"  class="child_all" name="someCheckbox[{{$types_data}}]" />';
+                    })
                     ->addColumn('action',function ($types_data) {
                                                 
                        // return '<a href="'.url("admin/edit-property-type/".$types_data->id).'" > <i class="fa fa-edit"></i> </a>'.' '.'<a href="'.url("/delete_user/".$types_data->id).'" ><i class="fa fa-trash"></i></a>';
@@ -247,6 +247,42 @@ class PropertyController extends Controller
             return 'false';
         }else{
             return 'true';
+        }
+    }
+
+    public function propertySubTypesActive(Request $request){
+        if($request->isMethod("post")){
+            $payid = $request->someCheckbox;
+            $count = implode(" ",$payid);
+            $count = explode(",",$count);
+            $update=DB::table('property_sub_types')->whereIn('id',$count)
+                                   ->update(['status'=>'active']);
+            if($update){
+                session::flash('success','status changed to active');
+                return ['status'=>'true'];
+            }else{
+                session::flash('error','status not change');
+                return ['status'=>'false'];
+            }
+        // return redirect('/property_types');
+        }
+    }
+
+    public function propertySubTypesInactive(Request $request){
+        if($request->isMethod("post")){
+            $payid = $request->someCheckbox;
+            $count = implode(" ",$payid);
+            $count = explode(",",$count);
+            $update=DB::table('property_sub_types')->whereIn('id',$count)
+                                   ->update(['status'=>'inactive']);
+            if($update){
+                session::flash('success','status changed to inactive');
+                return ['status'=>'true'];
+            }else{
+                session::flash('error','status not change');
+                return ['status'=>'false'];
+            }
+        // return redirect('/users');
         }
     }
 

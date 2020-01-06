@@ -25,7 +25,7 @@ class UserManagementController extends Controller
     public function ajaxUsers(Request $request)   
     {   
         
-        $user_data = User::select('users.*');
+        $user_data = User::select('users.*')->where('deleted_at',null);
         return DataTables::of($user_data)
                     ->addIndexColumn()
                     ->addColumn('checkbox',function ($user_data) {
@@ -34,8 +34,8 @@ class UserManagementController extends Controller
                     })
                     ->addColumn('action',function ($user_data) {
                                                 
-                       // return '<a href="'.url("/edit_user/".$user_data->id).'" > <i class="fa fa-edit"></i> </a>'.' '.'<a href="'.url("/delete_user/".$user_data->id).'" ><i class="fa fa-trash"></i></a>';
-                       return '<a href="javascript:;" > <i class="fa fa-edit"></i> </a>'.' '.'<a href="javascript:;" ><i class="fa fa-remove"></i></a>';
+                       // return '<a href="'.url("admin/edit-users/".$user_data->id).'" > <i class="fa fa-edit"></i> </a>'.' '.'<a href="'.url("/delete_user/".$user_data->id).'" ><i class="fa fa-trash"></i></a>';
+                       return '<a href='.url("admin/edit-users/".$user_data->id).' > <i class="fa fa-edit"></i> </a>'.' '.'<a href="javascript:;" id="'.$user_data->id.'" class="remove-data" ><i class="fa fa-remove"></i></a>';
                     })
                     ->editColumn('created_at', function ($user_data) {
                         return $user_data->created_at ? with(new Carbon($user_data->created_at))->format('Y-m-d') : '';
@@ -44,7 +44,18 @@ class UserManagementController extends Controller
                     ->make(true);    
     }
 
-    
+    public function userDelete(Request $request,$id){
+        $date = date('m/d/Y h:i:s a', time());
+        $delete=DB::table('users')->where('id',$id)->update(['deleted_at'=>$date]);
+        if($delete){
+            session::flash('success','data delete successfully');
+            return ['status'=>'true']; 
+        }else{
+            session::flash('error','data not deleted');
+            return ['status'=>'false']; 
+        }
+    }
+
     public function selectUserDelete(Request $request){
         if($request->isMethod("post")){
             $payid = $request->someCheckbox;
@@ -97,6 +108,37 @@ class UserManagementController extends Controller
                 return ['status'=>'false'];
             }
         // return redirect('/users');
+        }
+    }
+
+    public function editUsers(Request $request,$id)
+    {
+        # code...
+        $user=DB::table('users')->where('id',$id)->first();
+        if($request->isMethod('post')){
+            $data=$request->except('_token');
+            
+            $update=DB::table('users')->where('id',$id)->update($data);
+            if($update){
+                session::flash('success','User edited successfully');
+                return redirect('admin/users');
+            }else{
+                session::flash('error','User data not change');
+                return redirect('admin/users');
+            }
+        }
+        return view('admin.admin.userManagement.editUsers')->with('user',$user);
+    }
+
+    public function checkUserEditContact(Request $request,$id)
+    {
+        # code...
+        $data=$request->all();
+        $check=DB::table('users')->where('id','<>',$id)->where('contact',$data['contact'])->first();
+        if($check){
+            return 'false';
+        }else{
+            return 'true';
         }
     }
 }

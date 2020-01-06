@@ -150,17 +150,7 @@ $(function() {
 </script> -->
 
 
-<script type="text/javascript">
-    $('#selectDelete').click(function(){
-        $ajax({
-            url:"{{url('/admin/select-user-delete')}}"
-            method:'post'
-            data:$('#select-delete').serialize()
-            success:
 
-        });
-    });
-</script>
 <script type="text/javascript">
     var value=[];
     $(document).on('click','.child_all',function(){
@@ -220,6 +210,24 @@ $(function() {
             // order: [[ 1, 'asc' ]] 
         });            
     
+    });
+</script>
+<script type="text/javascript">
+    $(document).on('click','.remove-data',function(){
+        var user_id=$(this).attr('id');
+        alert(user_id);
+        $.ajax({
+            url:"{{url('/admin/user-delete')}}"+'/'+user_id,
+            success: function(response){
+                $('#usertable').DataTable().ajax.reload();
+
+                // dd.hide();
+            },error:function(errorMessage){
+                console.log('Error: ' + errorMessage);
+                // location.replace("{{url('admin/users')}}");
+            }
+
+        });
     });
 </script>
 <script type="text/javascript">

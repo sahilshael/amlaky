@@ -49,6 +49,13 @@
                     </li>
                 </ul>
             </li>
+            <li class="">
+                <a href="{{url('admin/city')}}">
+                    <span class="pcoded-micon"><i class="fa fa-building"></i><b>D</b></span>
+                    <span class="pcoded-mtext" data-i18n="nav.dash.main">City</span>
+                    <span class="pcoded-mcaret"></span>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

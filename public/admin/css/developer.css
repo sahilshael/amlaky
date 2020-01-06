@@ -49,3 +49,16 @@
 #add_type_form .form-control{
     width: 70%;
 }
+
+
+.btn.green {
+    background: #b94044;
+    color: #fff;
+    margin: 10px 10px;
+}
+.form-group .col-sm-10 .form-control.select_member{
+    width: 100% !important;
+}
+.button.center{
+    text-align: center;
+}

@@ -4,13 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PropertyTypes extends Model
+class City extends Model
 {
     //
 
     protected $fillable = [
-        'property_type', 
+        'city_name', 
     ];
 
-    protected $table = 'property_types';
+    protected $table = 'cities';
 }
