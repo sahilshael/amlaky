@@ -72,6 +72,10 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
 	Route::match(['get','post'],'/property-types-active','admin\PropertyController@propertyTypesActive');
 	Route::match(['get','post'],'/property-types-inactive','admin\PropertyController@propertyTypesInactive');
 	Route::match(['get','post'],'/property-types-delete','admin\PropertyController@propertyTypesDelete');
+	Route::match(['get','post'],'/add-property-type','admin\PropertyController@addPropertyType');
+	Route::match(['get','post'],'/edit-property-type/{id}','admin\PropertyController@editPropertyType');
+	Route::match(['get','post'],'/check-property-type','admin\PropertyController@checkPropertyType');
+	Route::match(['get','post'],'/check-edit-property-type/{id}','admin\PropertyController@checkEditPropertyType');
 
 	//=====================================Property Sub Type======================================
 	Route::match(['get','post'],'/property-sub-type/{id}','admin\PropertyController@propertySubTypes');	
